@@ -1,6 +1,11 @@
 package com.shoppingmart.ecommerceClothing.BookingServices;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,5 +22,17 @@ public class BookingController {
     public BookingDto saveBooking(@RequestBody BookingDto bookingDto)
     {
         return bookingService.saveBooking(bookingDto);
+    }
+
+    @GetMapping("/getbooking/{i}")
+    public Optional<BookingDto> getBooking(@PathVariable int i)
+    {
+        return bookingService.getbooking(i);
+    }
+
+    @PostMapping("/getmultibooking")
+    public List<BookingDto> getmultiplebooking(@RequestBody List<Integer> i)
+    {
+        return bookingService.getmultiplebooking(i);
     }
 }
