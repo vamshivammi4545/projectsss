@@ -24,7 +24,7 @@ public class BookingController {
         return bookingService.saveBooking(bookingDto);
     }
 
-    @GetMapping("/getbooking/{i}")
+    @GetMapping("/getbookingg/{i}")
     public Optional<BookingDto> getBooking(@PathVariable int i)
     {
         return bookingService.getbooking(i);
