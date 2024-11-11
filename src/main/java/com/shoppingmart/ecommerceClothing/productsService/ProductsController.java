@@ -12,7 +12,7 @@ public class ProductsController {
     @Autowired
     private ProductService productService;
 
-    @PostMapping("/saveproduct")
+    @PostMapping("/Saveproduct")
     public String  saveProductsController(@RequestBody Productsdto productsdto){
     return productService.saveProductsService(productsdto);
 } 
