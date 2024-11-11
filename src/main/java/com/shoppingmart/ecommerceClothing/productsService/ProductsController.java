@@ -1,6 +1,9 @@
 package com.shoppingmart.ecommerceClothing.productsService;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
+
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,11 +21,11 @@ public class ProductsController {
     public String  saveProductsController(@RequestBody Productsdto productsdto){
     return productService.saveProductsService(productsdto);
 }
- @GetMapping("/productId")
+ @GetMapping("/productId/{i}")
 public Productsdto findProductById(@PathVariable int i) {
         return productService.findProductById(i);
     }
     @GetMapping("/findAllById")
-    public List<Productsdto> findAllById(@RequestBody List<integer>i) {
+    public List<Productsdto> findAllById(@RequestBody List<integer> i) {
         return productService.findAllById(i);
 }
