@@ -13,7 +13,7 @@ public class BookingController {
     @Autowired
     private BookingService bookingService;
 
-    @PostMapping("/SaveBooking")
+    @PostMapping("/saveBooking")
     public BookingDto saveBooking(@RequestBody BookingDto bookingDto)
     {
         return bookingService.saveBooking(bookingDto);
