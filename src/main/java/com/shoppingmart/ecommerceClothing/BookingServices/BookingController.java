@@ -35,4 +35,10 @@ public class BookingController {
     {
         return bookingService.getmultiplebooking(i);
     }
+
+    @PostMapping("/savemultibooking")
+    public String savemultibooking(@RequestBody BookingDto bookingDto)
+    {
+        return bookingService.savemultibooking(bookingDto);
+    }
 }

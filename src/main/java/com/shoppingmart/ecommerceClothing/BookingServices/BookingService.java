@@ -42,4 +42,9 @@ public class BookingService {
     {
         return bookingDao.getmultiplebooking(i);
     }
+
+    public String savemultibooking(BookingDto bookingDto)
+    {
+        return bookingDao.savemultibooking(bookingDto);
+    }
 }

@@ -2,6 +2,8 @@ package com.shoppingmart.ecommerceClothing.BookingServices;
 
 import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,7 +23,9 @@ public class BookingDto {
     private int quantity;
     private int totalPrice;
     private LocalDateTime bookingdateTime;
-
+   
+    @Autowired
+    private Multibooking multibooking;
 
     public int getId() {
         return id;
@@ -76,6 +80,12 @@ public class BookingDto {
     }
     public void setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
+    }
+    public Multibooking getMultibooking() {
+        return multibooking;
+    }
+    public void setMultibooking(Multibooking multibooking) {
+        this.multibooking = multibooking;
     }
     
   
