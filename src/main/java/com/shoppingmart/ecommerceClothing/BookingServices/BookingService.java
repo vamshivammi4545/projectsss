@@ -19,20 +19,20 @@ public class BookingService {
     @Autowired
     private ProductRepo productRepo;
 
-    public BookingDto saveBooking(BookingDto bookingDto)
-    {
-        // Optional<Productsdto> productsdto=productRepo.findById(bookingDto.getId());
-        // bookingDto.setPrice(productsdto.get().getPrice());
-        // bookingDto.setTotalPrice(bookingDto.getQuantity()*productsdto.get().getPrice());
-        // bookingDto.setBookingdateTime(LocalDateTime.now());
-        Optional<Productsdto> o=productRepo.findById(bookingDto.getProductId());
-        bookingDto.setPrice(o.get().getPrice());
-        int totalprice=bookingDto.getQuantity()*o.get().getPrice();
-        bookingDto.setTotalPrice(totalprice);
-        bookingDto.setBookingdateTime(LocalDateTime.now());
-        return bookingDao.saveBooking(bookingDto);
+    // public BookingDto saveBooking(BookingDto bookingDto)
+    // {
+    //     // Optional<Productsdto> productsdto=productRepo.findById(bookingDto.getId());
+    //     // bookingDto.setPrice(productsdto.get().getPrice());
+    //     // bookingDto.setTotalPrice(bookingDto.getQuantity()*productsdto.get().getPrice());
+    //     // bookingDto.setBookingdateTime(LocalDateTime.now());
+    //     // Optional<Productsdto> o=productRepo.findById(bookingDto.getProductId());
+    //     // bookingDto.setPrice(o.get().getPrice());
+    //     // int totalprice=bookingDto.getQuantity()*o.get().getPrice();
+    //     // bookingDto.setTotalPrice(totalprice);
+    //     // bookingDto.setBookingdateTime(LocalDateTime.now());
+    //     // return bookingDao.saveBooking(bookingDto);
         
-    }
+    // }
     public Optional<BookingDto> getbooking(int i)
     {
         return bookingDao.getBooking(i);

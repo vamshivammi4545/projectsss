@@ -2,6 +2,7 @@ package com.shoppingmart.ecommerceClothing.BookingServices;
 
 
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,10 +22,10 @@ public class BookingDao {
     private ProductRepo productRepo;
 
 
-    public BookingDto saveBooking(BookingDto bookingDto)
-    {
-        return bookingRepo.save(bookingDto);
-    }
+    // public BookingDto saveBooking(BookingDto bookingDto)
+    // {
+    //     return bookingRepo.save(bookingDto);
+    // }
 
     public Optional<BookingDto> getBooking(int i)
     {
@@ -40,11 +41,11 @@ public class BookingDao {
       List<Multibooking> multibookings=  bookingDto.getMultibooking();
       for (Multibooking multibooking : multibookings) {
       Optional<Productsdto> productsdto=  productRepo.findById( multibooking.getProdid());
-      System.out.println(productsdto.get()+" i m ");
      int prodprice= productsdto.get().getPrice();
-            totalprice= prodprice*multibooking.getQut();
+            totalprice+= prodprice*multibooking.getQut();
       }
       bookingDto.setTotalPrice(totalprice);
+      bookingDto.setBookingdateTime(LocalDateTime.now());
       bookingRepo.save(bookingDto);
       return "done";
     }

@@ -26,8 +26,10 @@ public class BookingDto {
     // private int quantity;
     private int totalPrice;
     private LocalDateTime bookingdateTime;
+
     @OneToMany(cascade = CascadeType.ALL)
     private List<Multibooking> multibooking;
+    
     public int getId() {
         return id;
     }

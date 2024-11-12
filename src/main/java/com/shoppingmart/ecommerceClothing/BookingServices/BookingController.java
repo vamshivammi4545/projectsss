@@ -18,11 +18,11 @@ public class BookingController {
     @Autowired
     private BookingService bookingService;
 
-    @PostMapping("/saveBooking")
-    public BookingDto saveBooking(@RequestBody BookingDto bookingDto)
-    {
-        return bookingService.saveBooking(bookingDto);
-    }
+    // @PostMapping("/saveBooking")
+    // public BookingDto saveBooking(@RequestBody BookingDto bookingDto)
+    // {
+    //     return bookingService.saveBooking(bookingDto);
+    // }
 
     @GetMapping("/getbookingg/{i}")
     public Optional<BookingDto> getBooking(@PathVariable int i)
