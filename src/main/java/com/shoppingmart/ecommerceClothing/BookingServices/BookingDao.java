@@ -2,7 +2,6 @@ package com.shoppingmart.ecommerceClothing.BookingServices;
 
 
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +20,7 @@ public class BookingDao {
     @Autowired
     private ProductRepo productRepo;
 
+
     public BookingDto saveBooking(BookingDto bookingDto)
     {
         return bookingRepo.save(bookingDto);
@@ -36,20 +36,16 @@ public class BookingDao {
     }
     public String savemultibooking(BookingDto bookingDto)
     {
-        List<Multibooking> mb=(List<Multibooking>) bookingDto.getMultibooking();
-        for (Multibooking multibooking : mb) {
-            int idd=multibooking.getId();
-            int qtyy=multibooking.getQut();
-            Optional<Productsdto> oo= productRepo.findById(idd);
-            int price=oo.get().getPrice();
-            int totalprice=oo.get().getPrice()*qtyy;
-            bookingDto.setProductId(idd);
-            bookingDto.setPrice(price);
-            bookingDto.setTotalPrice(totalprice);
-            bookingDto.setQuantity(qtyy);
-            bookingDto.setBookingdateTime(LocalDateTime.now());
-            bookingRepo.save(bookingDto);
-        }
-        return "Success";
+        int totalprice=0;
+      List<Multibooking> multibookings=  bookingDto.getMultibooking();
+      for (Multibooking multibooking : multibookings) {
+      Optional<Productsdto> productsdto=  productRepo.findById( multibooking.getProdid());
+      System.out.println(productsdto.get()+" i m ");
+     int prodprice= productsdto.get().getPrice();
+            totalprice= prodprice*multibooking.getQut();
+      }
+      bookingDto.setTotalPrice(totalprice);
+      bookingRepo.save(bookingDto);
+      return "done";
     }
 }
