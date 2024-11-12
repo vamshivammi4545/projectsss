@@ -49,4 +49,25 @@ public class BookingDao {
       bookingRepo.save(bookingDto);
       return "done";
     }
+
+    public String discountcopun10(BookingDto bookingDto)
+    {
+        int totalprice=0;
+        List<Multibooking> multibookings=bookingDto.getMultibooking();
+        for (Multibooking multibooking : multibookings) {
+            
+            Optional<Productsdto> pro=productRepo.findById(multibooking.getProdid());
+            int price=pro.get().getPrice();
+            int q=multibooking.getQut();
+            totalprice+=price*q;
+        }
+        bookingDto.setBookingdateTime(LocalDateTime.now());
+        int discount=totalprice/100*10;
+        
+        bookingDto.setTotalPrice(totalprice-discount);
+        
+        bookingRepo.save(bookingDto);
+       
+        return "booking done";
+    }
 }

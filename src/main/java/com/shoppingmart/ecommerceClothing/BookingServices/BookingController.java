@@ -41,4 +41,10 @@ public class BookingController {
     {
         return bookingService.savemultibooking(bookingDto);
     }
+
+    @PostMapping("/discount")
+    public String discountcopun10(@RequestBody BookingDto bookingDto)
+    {
+        return bookingService.discountcopun10(bookingDto);
+    }
 }

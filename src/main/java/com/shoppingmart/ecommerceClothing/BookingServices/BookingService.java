@@ -47,4 +47,9 @@ public class BookingService {
     {
         return bookingDao.savemultibooking(bookingDto);
     }
+    
+    public String discountcopun10(BookingDto bookingDto)
+    {
+        return bookingDao.discountcopun10(bookingDto);
+    }
 }
