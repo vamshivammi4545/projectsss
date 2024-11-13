@@ -1,5 +1,6 @@
 package com.shoppingmart.ecommerceClothing.Usersservice;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,4 +22,10 @@ public class Customersdao {
     {
         return customersrepo.findById(i);
     }
+
+    public List<Customers> getallcustomers()
+    {
+        return customersrepo.findAll();
+    }
+    
 }

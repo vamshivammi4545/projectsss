@@ -1,6 +1,7 @@
 package com.shoppingmart.ecommerceClothing.Usersservice;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,11 @@ public class Customerscontroller {
     public Optional<Customers> getbyid(@PathVariable int i)
     {
         return customersservice.getbyid(i);
+    }
+
+    @GetMapping("/getallcustomers")
+    public List<Customers> getallcustomers()
+    {
+        return customersservice.getallcustomers();
     }
 }
