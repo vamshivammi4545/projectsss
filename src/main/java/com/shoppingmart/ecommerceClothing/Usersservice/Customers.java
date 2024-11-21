@@ -1,9 +1,16 @@
 package com.shoppingmart.ecommerceClothing.Usersservice;
 
+import java.util.List;
+
+import com.shoppingmart.ecommerceClothing.Notifications.Notification;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Customers {
@@ -18,6 +25,8 @@ public class Customers {
     private String email;
     private String password;
 
+    @OneToMany( cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Notification> notification;
     
     public int getId() {
         return id;
@@ -60,6 +69,12 @@ public class Customers {
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+    public List<Notification> getNotification() {
+        return notification;
+    }
+    public void setNotification(List<Notification> notification) {
+        this.notification = notification;
     }
 
     
