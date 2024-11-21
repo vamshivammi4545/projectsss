@@ -51,9 +51,15 @@ public class BookingController {
         return bookingService.discountcopun10(bookingDto);
     }
 
-    @GetMapping("/byrange")
-    public List<Productsdto> getbypricerange(@RequestParam int minrange, @RequestParam int maxrange)
+
+    @GetMapping("/byrange/{minrange}/{maxrange}")
+    public List<Productsdto> getbypricerange(@PathVariable int minrange, @PathVariable int maxrange)
     {
         return bookingService.getbyrange(minrange, maxrange);
     }
+    // @GetMapping("/byrange")
+    // public List<Productsdto> getbypricerange(@RequestParam int minrange, @RequestParam int maxrange)
+    // {
+    //     return bookingService.getbyrange(minrange, maxrange);
+    // }
 }
