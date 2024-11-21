@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.shoppingmart.ecommerceClothing.productsService.Productsdto;
 
 @RestController
 @RequestMapping("/Booking")
@@ -46,5 +49,11 @@ public class BookingController {
     public String discountcopun10(@RequestBody BookingDto bookingDto)
     {
         return bookingService.discountcopun10(bookingDto);
+    }
+
+    @GetMapping("/byrange")
+    public List<Productsdto> getbypricerange(@RequestParam int minrange, @RequestParam int maxrange)
+    {
+        return bookingService.getbyrange(minrange, maxrange);
     }
 }

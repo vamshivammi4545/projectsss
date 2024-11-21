@@ -12,6 +12,9 @@ import org.springframework.stereotype.Repository;
 import com.shoppingmart.ecommerceClothing.productsService.ProductRepo;
 import com.shoppingmart.ecommerceClothing.productsService.Productsdto;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
+
 @Repository
 public class BookingDao {
 
@@ -20,6 +23,9 @@ public class BookingDao {
 
     @Autowired
     private ProductRepo productRepo;
+
+    @Autowired
+    private EntityManager entityManager;
 
 
     // public BookingDto saveBooking(BookingDto bookingDto)
@@ -69,5 +75,13 @@ public class BookingDao {
         bookingRepo.save(bookingDto);
        
         return "booking done";
+    }
+    public List<Productsdto> getbypricerange(int minrange,int maxrange)
+    {
+        Query q=entityManager.createQuery("SELECT a from Productsdto a where a.price>=?1 AND a.price<=?2");
+        q.setParameter(1, minrange);
+        q.setParameter(2, maxrange);
+        List<Productsdto> list=q.getResultList();
+        return list;
     }
 }

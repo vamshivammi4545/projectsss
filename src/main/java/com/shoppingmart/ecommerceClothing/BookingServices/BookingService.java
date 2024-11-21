@@ -52,4 +52,9 @@ public class BookingService {
     {
         return bookingDao.discountcopun10(bookingDto);
     }
+
+    public List<Productsdto> getbyrange(int minrange,int maxrange)
+    {
+        return bookingDao.getbypricerange(minrange, maxrange);
+    }
 }
